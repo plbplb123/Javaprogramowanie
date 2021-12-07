@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+
+public class KalkulatorFunkcja {
+        public static void main(String[] args) {
+                double x0 = 0;
+                double x1 = 0;
+                double x2 = 0;
+                int x00 = 0;
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Podaj a");
+                float a = scan.nextFloat();
+                System.out.println("Podaj b");
+                float b = scan.nextFloat();
+                System.out.println("Podaj c");
+                float c = scan.nextFloat();
+                System.out.println("a: " + a + "b: " + b + "c: " + c);
+                float delta = b*b-4*a*c;
+                System.out.println("Delta: "+delta);
+                float p = -1*b / 2*a;
+                float q = -1*delta / 4*a;
+                System.out.println("P:" +p+ "Q:" +q);
+                System.out.println("Postac kanoniczna: f(x)="+a+"(x");
+                if(p>0){ System.out.print("- "+p+")"); } else if(p<0) {p=p*-1;System.out.print("+ "+p+")"); }
+                if(q>0) { System.out.print("+");System.out.print(q); }
+                else if(q<0){System.out.print("-"); System.out.print(q); }
+                System.out.println("|");
+                if(delta>0) {
+                        x1 = b * -1 - Math.sqrt(delta) / 2 * a;
+                        x2 = b * -1 + Math.sqrt(delta) / 2 * a;
+                        x00 = 1;
+                        System.out.println("X1: "+x1+" X2: " +x2);
+
+                }
+                else if(delta==0){
+
+                        x0 = -1*b / 2 * a;
+                        x00 = 2;
+                        System.out.println("X0: " +x0);
+                }
+
+                else if(delta<0) {
+                        System.out.println("X1 i X2 nie istnieja, gdyz delta jest minusowa.");
+                        x00 = 3;
+                }
+                if(x00==1){
+                        System.out.println("Postac iloczynowa: f(x) = "+a);if(x1 > 0){System.out.print("(x - " +x1+ ")"); }else if(x1 < 0){ System.out.print("(x + " +x1+ ")");}
+                        if(x2 > 0){System.out.print("(x - " +x2+ ")"); }else if(x2 < 0){ x2=x2*-1;System.out.print("(x + " +x2+ ")");}
+                }
+                else if(x00==2){
+                        System.out.println("Postac iloczynowa: f(x) = "+a); if(x0 > 0){System.out.print("(x - " +x0+ ")^2"); } else if(x0 < 0){System.out.print("(x + " +x0+ ")^2"); }
+                }
+                else if(x00==3){
+                        System.out.println("Postac iloczynowa NIE ISTNIEJE.");
+                        }
+                }
+
+        }
+
+
+
